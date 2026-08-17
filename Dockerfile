@@ -7,6 +7,7 @@ RUN pip3 install wheel
 RUN pip3 install --no-cache-dir -U -r requirements.txt
 COPY . .
 RUN chmod +x start.sh
+ENV PYTHONUNBUFFERED=1
 EXPOSE 5000
 
 CMD ["bash", "start.sh"]
