@@ -47,6 +47,7 @@ async def set(_, message):
         BotCommand("plan", "🗓️ Check our premium plans"),
         BotCommand("terms", "🥺 Terms and conditions"),
         BotCommand("help", "❓ If you're a noob, still!"),
+        BotCommand("auto", "🤖 Auto-save/forward from target bot"),
         BotCommand("cancel", "🚫 Cancel login/batch/settings process"),
         BotCommand("stop", "🚫 Cancel batch process")
     ])

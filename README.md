@@ -60,6 +60,7 @@ Please do start and max fork thanks
 - **`plan`**: 🗓️ Check our premium plans.
 - **`terms`**: 🥺 Terms and conditions.
 - **`help`**: ❓ Help if you're new.
+- **`auto`**: 🤖 Auto-save/forward all messages and videos from a target bot (`/auto all <bot_username>`).
 - **`cancel`**: 🚫 Cancel batch process.
 
 
