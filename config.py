@@ -20,17 +20,21 @@ YTUB_COOKIES = """
 """
 
 # ─── BOT / DATABASE CONFIG ──────────────────────────────────────────────────────
-API_ID       = os.getenv("API_ID", "")
-API_HASH     = os.getenv("API_HASH", "")
-BOT_TOKEN    = os.getenv("BOT_TOKEN", "")
-MONGO_DB     = os.getenv("MONGO_DB", "")
-DB_NAME      = os.getenv("DB_NAME", "telegram_downloader")
+api_id_env   = os.getenv("API_ID", "").strip()
+API_ID       = int(api_id_env) if api_id_env.isdigit() else api_id_env
+API_HASH     = os.getenv("API_HASH", "").strip()
+BOT_TOKEN    = os.getenv("BOT_TOKEN", "").strip()
+MONGO_DB     = os.getenv("MONGO_DB", "").strip()
+DB_NAME      = os.getenv("DB_NAME", "telegram_downloader").strip()
 
 # ─── OWNER / CONTROL SETTINGS ───────────────────────────────────────────────────
-OWNER_ID     = list(map(int, os.getenv("OWNER_ID", "").split()))  # space-separated list
-STRING       = os.getenv("STRING", None)  # optional session string
-LOG_GROUP    = int(os.getenv("LOG_GROUP", "-1001234456"))
-FORCE_SUB    = int(os.getenv("FORCE_SUB", "-10012345567"))
+owner_id_env = os.getenv("OWNER_ID", "").replace(",", " ").strip()
+OWNER_ID     = [int(x) for x in owner_id_env.split() if x.isdigit()] if owner_id_env else []
+STRING       = os.getenv("STRING", "").strip() or None  # optional session string
+log_group_env = os.getenv("LOG_GROUP", "-1001234456").strip()
+LOG_GROUP    = int(log_group_env) if log_group_env.lstrip("-").isdigit() else -1001234456
+force_sub_env = os.getenv("FORCE_SUB", "-10012345567").strip()
+FORCE_SUB    = int(force_sub_env) if force_sub_env.lstrip("-").isdigit() else -10012345567
 
 # ─── SECURITY KEYS ──────────────────────────────────────────────────────────────
 MASTER_KEY   = os.getenv("MASTER_KEY", "gK8HzLfT9QpViJcYeB5wRa3DmN7P2xUq")  # session encryption
